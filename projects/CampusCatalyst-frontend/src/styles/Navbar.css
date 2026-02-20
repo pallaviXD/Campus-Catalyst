@@ -1,0 +1,220 @@
+/* Navbar Styling */
+
+.navbar {
+  background: var(--secondary-black);
+  border-bottom: 1px solid var(--tertiary-black);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pure-white);
+  transition: transform var(--transition-fast);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.brand-icon {
+  color: var(--primary-red);
+  font-size: 1.75rem;
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--light-gray);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--primary-red);
+  background: var(--tertiary-black);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.wallet-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--tertiary-black);
+  border: 1px solid var(--primary-red);
+  border-radius: var(--radius-md);
+  color: var(--primary-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.user-menu-container {
+  position: relative;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  border: 2px solid var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pure-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.user-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-sm));
+  right: 0;
+  background: var(--secondary-black);
+  border: 1px solid var(--tertiary-black);
+  border-radius: var(--radius-md);
+  min-width: 200px;
+  box-shadow: var(--shadow-lg);
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-info {
+  padding: var(--spacing-md);
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--pure-white);
+  margin-bottom: var(--spacing-xs);
+}
+
+.user-email {
+  font-size: 0.875rem;
+  color: var(--light-gray);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--tertiary-black);
+  margin: var(--spacing-sm) 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--light-gray);
+  text-decoration: none;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.9375rem;
+}
+
+.dropdown-item:hover {
+  background: var(--tertiary-black);
+  color: var(--primary-red);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--secondary-black);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--tertiary-black);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all var(--transition-normal);
+    pointer-events: none;
+  }
+
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
